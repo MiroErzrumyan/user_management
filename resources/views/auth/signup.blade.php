@@ -13,7 +13,6 @@
             display: grid;
             height: 100%;
             width: 100%;
-            place-items: center;
             background: #f2f2f2;
             /* background: linear-gradient(-135deg, #c850c0, #4158d0); */
         }
@@ -135,43 +134,46 @@
         }
         .navbar {
             width: 100%;
+            height: 70px;
+
         }
     </style>
 @stop
 @section('body')
+    <div class=" d-flex justify-content-center" style="max-height: 600px">
+        <div class="wrapper">
+            <div class="title">
+                Register Form
+            </div>
+            <form action="{{route('auth.doRegister')}}" method="post">
+                <div class="field">
+                    <input type="text" required name="first_name">
+                    <label>First Name</label>
+                </div>
+                <div class="field">
+                    <input type="text" required name="last_name">
+                    <label>Last Name</label>
+                </div>
+                <div class="field">
+                    <input type="text" required name="email">
+                    <label>Email Address</label>
+                </div>
+                <div class="field">
+                    <input type="password" required name="password">
+                    <label> Password</label>
+                </div>
+                <div class="field">
+                    <input type="password" required name="confirmPassword">
+                    <label>Confirm Password</label>
+                </div>
 
-    <div class="wrapper">
-    <div class="title">
-        Register Form
+                <div class="field">
+                    <input type="submit" value="Login">
+                </div>
+                <div class="signup-link">
+                    already have account? <a href="{{route('auth.login')}}">Sign in now</a>
+                </div>
+            </form>
+        </div>
     </div>
-    <form action="{{route('auth.doRegister')}}" method="post">
-        <div class="field">
-            <input type="text" required name="first_name">
-            <label>First Name</label>
-        </div>
-        <div class="field">
-            <input type="text" required name="last_name">
-            <label>Last Name</label>
-        </div>
-        <div class="field">
-            <input type="text" required name="email">
-            <label>Email Address</label>
-        </div>
-        <div class="field">
-            <input type="password" required name="password">
-            <label> Password</label>
-        </div>
-        <div class="field">
-            <input type="password" required name="confirmPassword">
-            <label>Confirm Password</label>
-        </div>
-
-        <div class="field">
-            <input type="submit" value="Login">
-        </div>
-        <div class="signup-link">
-            already have account? <a href="{{route('auth.login')}}">Sign in now</a>
-        </div>
-    </form>
-</div>
 @stop
